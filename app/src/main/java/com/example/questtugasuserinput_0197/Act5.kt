@@ -138,7 +138,43 @@ fun FormBiodata(modifier: Modifier = Modifier) {
                             dimensionResource(R.dimen.spacing_small)
                         )
                     )
+                    Text(
+                        text = stringResource(R.string.form_subtitle),
+                        fontSize = dimensionResource(R.dimen.subtitle_size).value.sp,
+                        color = textGray
+                    )
 
+                    Spacer(
+                        modifier = Modifier.height(
+                            dimensionResource(R.dimen.spacing_large)
+                        )
+                    )
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.spacedBy(
+                            dimensionResource(R.dimen.padding_small)
+                        )
+                    ) {
+
+                        OutlinedTextField(
+                            value = namaDepan,
+                            onValueChange = {
+                                namaDepan = it
+                                tampilHasil = false
+                            },
+                            modifier = Modifier.weight(1f),
+                            singleLine = true,
+                            shape = RoundedCornerShape(
+                                dimensionResource(R.dimen.corner_radius)
+                            ),
+                            label = {
+                                Text(stringResource(R.string.first_name))
+                            },
+                            colors = OutlinedTextFieldDefaults.colors(
+                                focusedBorderColor = purple,
+                                unfocusedBorderColor = borderGray
+                            )
+                        )
                 }
             }
         }
