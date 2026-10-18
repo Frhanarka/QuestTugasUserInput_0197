@@ -5,4 +5,7 @@
     <color name="purple_light">#F8F4FF</color>
     <color name="white">#FFFFFF</color>
     <color name="text_dark">#33313A</color>
+    <color name="text_gray">#85818D</color>
+    <color name="border_gray">#AAA6B1</color>
+    <color name="disabled_gray">#E2E2E2</color>
 </resources>
