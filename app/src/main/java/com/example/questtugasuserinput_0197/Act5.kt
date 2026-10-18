@@ -126,6 +126,20 @@ fun FormBiodata(modifier: Modifier = Modifier) {
                         ),
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
+                    Text(
+                        text = stringResource(R.string.form_title),
+                        fontSize = dimensionResource(R.dimen.title_size).value.sp,
+                        fontWeight = FontWeight.Bold,
+                        color = purple
+                    )
+
+                    Spacer(
+                        modifier = Modifier.height(
+                            dimensionResource(R.dimen.spacing_small)
+                        )
+                    )
+
+                }
             }
         }
 
