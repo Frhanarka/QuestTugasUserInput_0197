@@ -196,6 +196,48 @@ fun FormBiodata(modifier: Modifier = Modifier) {
                         )
 
                     }
+                    Spacer(
+                        modifier = Modifier.height(
+                            dimensionResource(R.dimen.spacing_medium)
+                        )
+                    )
+                    Spacer(
+                        modifier = Modifier.height(
+                            dimensionResource(R.dimen.spacing_medium)
+                        )
+                    )
+                    OutlinedTextField(
+                        value = email,
+                        onValueChange = {
+                            email = it
+                            errorEmail = false
+                            tampilHasil = false
+                        },
+                        modifier = Modifier.fillMaxWidth(),
+                        singleLine = true,
+                        shape = RoundedCornerShape(
+                            dimensionResource(R.dimen.corner_radius)
+                        ),
+                        label = {
+                            Text(stringResource(R.string.email))
+                        },
+                        isError = errorEmail,
+                        supportingText = {
+                            if (errorEmail) {
+                                Text(stringResource(R.string.email_error))
+                            }
+                        },
+                        colors = OutlinedTextFieldDefaults.colors(
+                            focusedBorderColor = purple,
+                            unfocusedBorderColor = borderGray
+                        )
+                    )
+
+                    Spacer(
+                        modifier = Modifier.height(
+                            dimensionResource(R.dimen.spacing_medium)
+                        )
+                    )
 
                 }
             }
