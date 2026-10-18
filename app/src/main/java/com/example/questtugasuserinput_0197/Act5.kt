@@ -72,6 +72,18 @@ fun FormBiodata(modifier: Modifier = Modifier) {
                 tanggalLahir.isNotBlank() &&
                 pengalaman.isNotBlank() &&
                 skills.isNotEmpty()
-}
+
+    Scaffold(
+        modifier = modifier.fillMaxSize(),
+        containerColor = colorResource(R.color.purple_light)
+    ) { innerPadding ->
+
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(innerPadding)
+        ) {
+
+        }
 
 
