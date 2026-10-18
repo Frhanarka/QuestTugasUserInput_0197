@@ -238,7 +238,312 @@ fun FormBiodata(modifier: Modifier = Modifier) {
                             dimensionResource(R.dimen.spacing_medium)
                         )
                     )
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.spacedBy(
+                            dimensionResource(R.dimen.padding_small)
+                        )
+                    ) {
 
+                        OutlinedButton(
+                            onClick = {
+                                val calendar = Calendar.getInstance()
+
+                                DatePickerDialog(
+                                    context,
+                                    { _, year, month, day ->
+                                        tanggalLahir =
+                                            "%02d/%02d/%04d".format(
+                                                day,
+                                                month + 1,
+                                                year
+                                            )
+                                        tampilHasil = false
+                                    },
+                                    calendar.get(Calendar.YEAR),
+                                    calendar.get(Calendar.MONTH),
+                                    calendar.get(Calendar.DAY_OF_MONTH)
+                                ).show()
+                            },
+                            modifier = Modifier
+                                .weight(1f)
+                                .height(
+                                    dimensionResource(R.dimen.field_height)
+                                ),
+                            shape = RoundedCornerShape(
+                                dimensionResource(R.dimen.corner_radius)
+                            )
+                        ) {
+                            Text(
+                                text = if (tanggalLahir.isBlank()) {
+                                    stringResource(R.string.birth_date)
+                                } else {
+                                    tanggalLahir
+                                },
+                                color = textDark,
+                                maxLines = 1
+                            )
+                        }
+
+                        Box(modifier = Modifier.weight(1f)) {
+
+                            OutlinedButton(
+                                onClick = {
+                                    menuPengalaman = true
+                                },
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .height(
+                                        dimensionResource(R.dimen.field_height)
+                                    ),
+                                shape = RoundedCornerShape(
+                                    dimensionResource(R.dimen.corner_radius)
+                                )
+                            ) {
+                                Text(
+                                    text = if (pengalaman.isBlank()) {
+                                        stringResource(R.string.experience)
+                                    } else {
+                                        pengalaman
+                                    },
+                                    color = textDark,
+                                    maxLines = 1
+                                )
+                            }
+
+                            DropdownMenu(
+                                expanded = menuPengalaman,
+                                onDismissRequest = {
+                                    menuPengalaman = false
+                                }
+                            ) {
+
+                                DropdownMenuItem(
+                                    text = {
+                                        Text(stringResource(R.string.beginner))
+                                    },
+                                    onClick = {
+                                        pengalaman = context.getString(
+                                            R.string.beginner
+                                        )
+                                        menuPengalaman = false
+                                        tampilHasil = false
+                                    }
+                                )
+
+                                DropdownMenuItem(
+                                    text = {
+                                        Text(stringResource(R.string.intermediate))
+                                    },
+                                    onClick = {
+                                        pengalaman = context.getString(
+                                            R.string.intermediate
+                                        )
+                                        menuPengalaman = false
+                                        tampilHasil = false
+                                    }
+                                )
+
+                                DropdownMenuItem(
+                                    text = {
+                                        Text(stringResource(R.string.expert))
+                                    },
+                                    onClick = {
+                                        pengalaman = context.getString(
+                                            R.string.expert
+                                        )
+                                        menuPengalaman = false
+                                        tampilHasil = false
+                                    }
+                                )
+                            }
+                        }
+                    }
+
+                    Spacer(
+                        modifier = Modifier.height(
+                            dimensionResource(R.dimen.spacing_large)
+                        )
+                    )
+
+                    Text(
+                        text = stringResource(R.string.skill_title),
+                        modifier = Modifier.fillMaxWidth(),
+                        fontWeight = FontWeight.Bold,
+                        color = textDark
+                    )
+
+                    Spacer(
+                        modifier = Modifier.height(
+                            dimensionResource(R.dimen.spacing_small)
+                        )
+                    )
+
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceBetween,
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            Checkbox(
+                                checked = androidSkill,
+                                onCheckedChange = {
+                                    androidSkill = it
+                                    tampilHasil = false
+                                },
+                                colors = CheckboxDefaults.colors(
+                                    checkedColor = purple
+                                )
+                            )
+                            Text(
+                                text = stringResource(R.string.android_skill),
+                                fontSize = 11.sp,
+                                color = textDark
+                            )
+                        }
+
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            Checkbox(
+                                checked = uiuxSkill,
+                                onCheckedChange = {
+                                    uiuxSkill = it
+                                    tampilHasil = false
+                                },
+                                colors = CheckboxDefaults.colors(
+                                    checkedColor = purple
+                                )
+                            )
+                            Text(
+                                text = stringResource(R.string.uiux_skill),
+                                fontSize = 11.sp,
+                                color = textDark
+                            )
+                        }
+
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            Checkbox(
+                                checked = webSkill,
+                                onCheckedChange = {
+                                    webSkill = it
+                                    tampilHasil = false
+                                },
+                                colors = CheckboxDefaults.colors(
+                                    checkedColor = purple
+                                )
+                            )
+                            Text(
+                                text = stringResource(R.string.web_skill),
+                                fontSize = 11.sp,
+                                color = textDark
+                            )
+                        }
+                    }
+
+                    Spacer(
+                        modifier = Modifier.height(
+                            dimensionResource(R.dimen.spacing_large)
+                        )
+                    )
+
+                    Button(
+                        onClick = {
+                            errorEmail = !emailValid
+
+                            if (formValid) {
+                                tampilHasil = true
+                            }
+                        },
+                        enabled =
+                            namaDepan.isNotBlank() &&
+                                    namaBelakang.isNotBlank() &&
+                                    email.isNotBlank() &&
+                                    tanggalLahir.isNotBlank() &&
+                                    pengalaman.isNotBlank() &&
+                                    skills.isNotEmpty(),
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(
+                                dimensionResource(R.dimen.button_height)
+                            ),
+                        shape = RoundedCornerShape(
+                            dimensionResource(R.dimen.corner_radius)
+                        ),
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = purple,
+                            disabledContainerColor =
+                                colorResource(R.color.disabled_gray),
+                            contentColor = white,
+                            disabledContentColor = white
+                        )
+                    ) {
+                        Text(
+                            text = stringResource(R.string.proceed),
+                            fontWeight = FontWeight.Bold
+                        )
+                    }
+
+                    if (tampilHasil) {
+
+                        Spacer(
+                            modifier = Modifier.height(
+                                dimensionResource(R.dimen.spacing_medium)
+                            )
+                        )
+
+                        HorizontalDivider(
+                            thickness = dimensionResource(R.dimen.divider_tipis),
+                            color = borderGray
+                        )
+
+                        Spacer(
+                            modifier = Modifier.height(
+                                dimensionResource(R.dimen.spacing_medium)
+                            )
+                        )
+
+                        Text(
+                            text = stringResource(R.string.result_title),
+                            fontWeight = FontWeight.Bold,
+                            color = purple
+                        )
+
+                        Spacer(
+                            modifier = Modifier.height(
+                                dimensionResource(R.dimen.spacing_small)
+                            )
+                        )
+
+                        Text(
+                            text = stringResource(R.string.result_name) +
+                                    ": $namaDepan $namaBelakang",
+                            color = textDark
+                        )
+
+                        Text(
+                            text = stringResource(R.string.result_email) +
+                                    ": $email",
+                            color = textDark
+                        )
+
+                        Text(
+                            text = stringResource(R.string.result_birth) +
+                                    ": $tanggalLahir",
+                            color = textDark
+                        )
+
+                        Text(
+                            text = stringResource(R.string.result_experience) +
+                                    ": $pengalaman",
+                            color = textDark
+                        )
+
+                        Text(
+                            text = stringResource(R.string.result_skill) +
+                                    ": ${skills.joinToString()}",
+                            color = textDark
+                        )
+                    }
                 }
             }
         }
