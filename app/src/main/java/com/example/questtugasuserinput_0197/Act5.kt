@@ -175,8 +175,32 @@ fun FormBiodata(modifier: Modifier = Modifier) {
                                 unfocusedBorderColor = borderGray
                             )
                         )
+                        OutlinedTextField(
+                            value = namaBelakang,
+                            onValueChange = {
+                                namaBelakang = it
+                                tampilHasil = false
+                            },
+                            modifier = Modifier.weight(1f),
+                            singleLine = true,
+                            shape = RoundedCornerShape(
+                                dimensionResource(R.dimen.corner_radius)
+                            ),
+                            label = {
+                                Text(stringResource(R.string.last_name))
+                            },
+                            colors = OutlinedTextFieldDefaults.colors(
+                                focusedBorderColor = purple,
+                                unfocusedBorderColor = borderGray
+                            )
+                        )
+
+                    }
+
                 }
             }
         }
+    }
+}
 
 
