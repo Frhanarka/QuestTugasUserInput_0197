@@ -47,3 +47,8 @@ fun FormBiodata(modifier: Modifier = Modifier) {
     val textGray = colorResource(R.color.text_gray)
     val borderGray = colorResource(R.color.border_gray)
 
+    val skills = listOfNotNull(
+        if (androidSkill) context.getString(R.string.android_skill) else null,
+        if (uiuxSkill) context.getString(R.string.uiux_skill) else null,
+        if (webSkill) context.getString(R.string.web_skill) else null
+
