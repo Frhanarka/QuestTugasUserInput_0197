@@ -47,8 +47,31 @@ fun FormBiodata(modifier: Modifier = Modifier) {
     val textGray = colorResource(R.color.text_gray)
     val borderGray = colorResource(R.color.border_gray)
 
-    val skills = listOfNotNull(
-        if (androidSkill) context.getString(R.string.android_skill) else null,
-        if (uiuxSkill) context.getString(R.string.uiux_skill) else null,
-        if (webSkill) context.getString(R.string.web_skill) else null
+    val skills = mutableListOf<String>()
+
+    if (androidSkill) {
+        skills.add("Android")
+    }
+
+    if (uiuxSkill) {
+        skills.add("UI/UX")
+    }
+
+    if (webSkill) {
+        skills.add("Web")
+    }
+
+    val emailValid = Patterns.EMAIL_ADDRESS
+        .matcher(email.trim())
+        .matches()
+
+    val formValid =
+        namaDepan.isNotBlank() &&
+                namaBelakang.isNotBlank() &&
+                emailValid &&
+                tanggalLahir.isNotBlank() &&
+                pengalaman.isNotBlank() &&
+                skills.isNotEmpty()
+}
+
 
