@@ -19,5 +19,10 @@
     <string name="intermediate">Intermediate</string>
     <string name="expert">Expert</string>
 
-
+    <string name="result_title">Biodata Anda</string>
+    <string name="result_name">Nama</string>
+    <string name="result_email">Email</string>
+    <string name="result_birth">Tanggal Lahir</string>
+    <string name="result_experience">Experience</string>
+    <string name="result_skill">Skill</string>
 </resources>
