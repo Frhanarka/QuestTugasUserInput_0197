@@ -93,6 +93,26 @@ fun FormBiodata(modifier: Modifier = Modifier) {
                         dimensionResource(R.dimen.header_height)
                     )
             )
+            ElevatedCard(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .fillMaxHeight(0.88f)
+                    .padding(horizontal = dimensionResource(R.dimen.padding_small))
+                    .padding(
+                        top = dimensionResource(R.dimen.card_top_padding)
+                    )
+                    .align(Alignment.TopCenter),
+                shape = RoundedCornerShape(
+                    topStart = dimensionResource(R.dimen.card_corner_radius),
+                    topEnd = dimensionResource(R.dimen.card_corner_radius)
+                ),
+                colors = CardDefaults.elevatedCardColors(
+                    containerColor = white
+                ),
+                elevation = CardDefaults.elevatedCardElevation(
+                    defaultElevation = dimensionResource(R.dimen.elevation_card)
+                )
+            ) {
         }
 
 
