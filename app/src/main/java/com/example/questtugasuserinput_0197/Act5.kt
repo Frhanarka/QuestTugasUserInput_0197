@@ -83,7 +83,16 @@ fun FormBiodata(modifier: Modifier = Modifier) {
                 .fillMaxSize()
                 .padding(innerPadding)
         ) {
-
+            Image(
+                painter = painterResource(R.drawable.spiderman),
+                contentDescription = null,
+                contentScale = ContentScale.Crop,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(
+                        dimensionResource(R.dimen.header_height)
+                    )
+            )
         }
 
 
