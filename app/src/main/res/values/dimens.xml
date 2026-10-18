@@ -7,4 +7,11 @@
     <dimen name="spacing_small">8dp</dimen>
     <dimen name="spacing_medium">16dp</dimen>
     <dimen name="spacing_large">24dp</dimen>
+
+    <dimen name="header_height">270dp</dimen>
+    <dimen name="card_top_padding">150dp</dimen>
+    <dimen name="field_height">56dp</dimen>
+    <dimen name="button_height">54dp</dimen>
+
+
 </resources>
