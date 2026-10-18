@@ -22,6 +22,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.platform.LocalContext
 import java.util.Calendar
 
+@Composable
 fun FormBiodata(modifier: Modifier = Modifier) {
 
     val context = LocalContext.current
@@ -39,3 +40,10 @@ fun FormBiodata(modifier: Modifier = Modifier) {
     var menuPengalaman by remember { mutableStateOf(false) }
     var tampilHasil by remember { mutableStateOf(false) }
     var errorEmail by remember { mutableStateOf(false) }
+
+    val purple = colorResource(R.color.purple_primary)
+    val white = colorResource(R.color.white)
+    val textDark = colorResource(R.color.text_dark)
+    val textGray = colorResource(R.color.text_gray)
+    val borderGray = colorResource(R.color.border_gray)
+
