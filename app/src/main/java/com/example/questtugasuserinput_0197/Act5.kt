@@ -31,3 +31,7 @@ fun FormBiodata(modifier: Modifier = Modifier) {
     var email by remember { mutableStateOf("") }
     var tanggalLahir by remember { mutableStateOf("") }
     var pengalaman by remember { mutableStateOf("") }
+
+    var androidSkill by remember { mutableStateOf(false) }
+    var uiuxSkill by remember { mutableStateOf(false) }
+    var webSkill by remember { mutableStateOf(false) }
