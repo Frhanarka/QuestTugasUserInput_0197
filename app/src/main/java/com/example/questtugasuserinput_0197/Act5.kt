@@ -113,6 +113,20 @@ fun FormBiodata(modifier: Modifier = Modifier) {
                     defaultElevation = dimensionResource(R.dimen.elevation_card)
                 )
             ) {
+                Column(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .verticalScroll(rememberScrollState())
+                        .padding(
+                            horizontal = dimensionResource(R.dimen.padding_form)
+                        )
+                        .padding(
+                            top = dimensionResource(R.dimen.spacing_large),
+                            bottom = dimensionResource(R.dimen.spacing_large)
+                        ),
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+            }
         }
 
 
