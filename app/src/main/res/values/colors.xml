@@ -3,4 +3,5 @@
     <color name="purple_primary">#7540B8</color>
     <color name="purple_dark">#4B237D</color>
     <color name="purple_light">#F8F4FF</color>
+    <color name="white">#FFFFFF</color>
 </resources>
