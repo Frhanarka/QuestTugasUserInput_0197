@@ -25,4 +25,8 @@
     <string name="result_birth">Tanggal Lahir</string>
     <string name="result_experience">Experience</string>
     <string name="result_skill">Skill</string>
+
+    <string name="email_error">Masukkan email yang valid</string>
+    <string name="cancel">Batal</string>
+    <string name="confirm">Pilih</string>
 </resources>
